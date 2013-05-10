@@ -10,7 +10,9 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     // Add your project dependencies here,
     jdbc,
-    anorm
+    anorm,
+    "postgresql" % "postgresql" % "9.1-901-1.jdbc4",
+    "org.seleniumhq.selenium" % "selenium-java" % "2.31.0" % "test"
   )
 
 

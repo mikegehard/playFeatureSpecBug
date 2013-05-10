@@ -1,28 +1,31 @@
 package test
 
-import org.specs2.mutable._
+import org.specs2.mutable.Specification
+import play.api.test.{Helpers, FakeApplication, WithBrowser}
+import java.util.concurrent.TimeUnit
+import org.openqa.selenium.Keys
 
-import play.api.test._
-import play.api.test.Helpers._
-
-/**
- * add your integration spec here.
- * An integration test will fire up a whole play application in a real (or headless) browser
- */
 class IntegrationSpec extends Specification {
-  
-  "Application" should {
-    
-    "work from within a browser" in {
-      running(TestServer(3333), HTMLUNIT) { browser =>
 
-        browser.goTo("http://localhost:3333/")
+//  val additionalConfig = Map(
+//    "db.default.url" -> "postgres://retrospectr:password@localhost/RetrospectrTest"
+//  )
+//  val app = FakeApplication(additionalConfiguration = additionalConfig)
+  val app = FakeApplication()
 
-        browser.pageSource must contain("Your new application is ready.")
-       
-      }
+  "testing first test test per file" should {
+    "test1" in new WithBrowser(webDriver = Helpers.FIREFOX, app = app) {
+      browser.goTo("/")
+
+      browser.pageSource must contain("Your new application is ready.")
     }
-    
   }
-  
+
+  "testing second test per file" should {
+    "test2" in new WithBrowser(webDriver = Helpers.FIREFOX, app = app) {
+      browser.goTo("/")
+
+      browser.pageSource must contain("Your new application is ready.")
+    }
+  }
 }
