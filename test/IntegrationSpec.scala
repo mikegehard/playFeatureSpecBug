@@ -13,13 +13,13 @@ class IntegrationSpec extends Specification {
   val app = FakeApplication(additionalConfiguration = additionalConfig)
 //  val app = FakeApplication()
 
-  "testing first test test per file" should {
-    "test1" in new WithBrowser(webDriver = Helpers.FIREFOX, app = app) {
-      browser.goTo("/")
-
-      browser.pageSource must contain("Your new application is ready.")
-    }
-  }
+//  "testing first test test per file" should {
+//    "test1" in new WithBrowser(webDriver = Helpers.FIREFOX, app = app) {
+//      browser.goTo("/")
+//
+//      browser.pageSource must contain("Your new application is ready.")
+//    }
+//  }
 
   "testing second test per file" should {
     "test2" in new WithBrowser(webDriver = Helpers.FIREFOX, app = app) {
