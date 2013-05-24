@@ -7,11 +7,11 @@ import org.openqa.selenium.Keys
 
 class IntegrationSpec extends Specification {
 
-//  val additionalConfig = Map(
-//    "db.default.url" -> "postgres://retrospectr:password@localhost/RetrospectrTest"
-//  )
-//  val app = FakeApplication(additionalConfiguration = additionalConfig)
-  val app = FakeApplication()
+  val additionalConfig = Map(
+    "db.default.url" -> "postgres://retrospectr:password@localhost/RetrospectrTest"
+  )
+  val app = FakeApplication(additionalConfiguration = additionalConfig)
+//  val app = FakeApplication()
 
   "testing first test test per file" should {
     "test1" in new WithBrowser(webDriver = Helpers.FIREFOX, app = app) {
